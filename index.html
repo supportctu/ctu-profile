@@ -14,10 +14,10 @@
     :root{
       --accent:#1477FF;
       --radius:24px;           /* radius kartu */
-      --img-radius:20px;       /* radius gambar (sesuai permintaan) */
+      --img-radius:10px;       /* radius gambar (sesuai permintaan) */
       --text:#101214;
       --muted:#616b76;
-      --border:rgba(16,18,20,.08);
+      --border:rgba(16,18,10,.08);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -29,20 +29,20 @@
     }
 
     /* NAV */
-    .shell{max-width:1000px;margin:0 auto;padding:20px}
+    .shell{max-width:1000px;margin:0 auto;padding:10px}
     .navbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(120%) blur(8px);background:rgba(255,255,255,.65);border-bottom:1px solid var(--border)}
     .bar{display:flex;align-items:center;gap:14px;padding:10px 14px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:var(--text)}
-    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(20,119,255,.18)}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(10,119,255,.18)}
     .spacer{flex:1}
     .tabs{display:flex;gap:6px}
     .tab{appearance:none;border:none;background:transparent;color:#2b2f36;font-weight:700;padding:8px 12px;border-radius:12px;cursor:pointer}
-    .tab[aria-current="page"], .tab:hover{background:rgba(16,18,20,.06);color:#0f1216}
+    .tab[aria-current="page"], .tab:hover{background:rgba(16,18,10,.06);color:#0f1216}
 
     /* GRID & CARDS */
     .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
     @media(min-width:980px){.grid{grid-template-columns:1.2fr .8fr}}
-    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:0 12px 30px rgba(16,18,20,.08)}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:0 12px 30px rgba(16,18,10,.08)}
     .card.soft{background:linear-gradient(180deg,#fff,#fafafa)}
 
     .hero{display:flex;align-items:center;gap:14px}
@@ -63,14 +63,14 @@
     .company-hero img{width:100%;height:auto;display:block;border-radius:var(--img-radius);}
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .pill{border:1px solid rgba(16,18,20,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#3a4048}
+    .pill{border:1px solid rgba(16,18,10,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#3a4048}
 
     /* WORK GRID */
     .workgrid{display:grid;gap:16px;margin-top:10px;grid-template-columns:1fr}
     @media(min-width:680px){.workgrid{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:980px){.workgrid{grid-template-columns:repeat(3,1fr)}}
-    .workcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 10px 26px rgba(16,18,20,.08);transition:transform .08s, box-shadow .15s, border-color .15s}
-    .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 20px 40px rgba(16,18,20,.12);transform:translateY(-1px)}
+    .workcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 10px 26px rgba(16,18,10,.08);transition:transform .08s, box-shadow .15s, border-color .15s}
+    .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 10px 20px rgba(16,18,20,.12);transform:translateY(-1px)}
     .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
 
     /* Thumbnail sederhana: hanya radius 20px */
