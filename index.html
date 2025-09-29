@@ -216,7 +216,14 @@
         a.className = 'workcard';
         a.target = p.url && p.url.startsWith('http') ? '_blank' : '_self';
         a.rel = 'noopener';
-        a.innerHTML = `\n          <div class=\"stage\">\n            <img class=\"shot\" src=\"${p.img}\" alt=\"${p.title}\">\n          </div>\n          <div class=\"workcap\">\n            <h3 class=\"worktitle\">${p.title}</h3>\n            <p class=\"workmeta\">${p.tag || ''}</p>\n          </div>`;
+        a.innerHTML = `
+          <div class=\"stage\">
+            <img class=\"shot\" src=\"${p.img}\" alt=\"${p.title}\">
+          </div>
+          <div class=\"workcap\">
+            <h3 class=\"worktitle\">${p.title}</h3>
+            <p class=\"workmeta\">${p.tag || ''}</p>
+          </div>`;
         grid.appendChild(a);
       });
     }
@@ -227,4 +234,3 @@
   </script>
 </body>
 </html>
-
