@@ -14,8 +14,8 @@
     :root{
       --accent:#1477FF;
       --radius:24px;      /* radius kartu/section */
-      --img-radius:5px;   /* <<< radius gambar */
-      --img-gap:2px;      /* <<< jarak putih di luar gambar */
+      --img-radius:5px;   /* radius gambar & putih luarnya */
+      --img-gap:2px;      /* jarak putih tipis di luar gambar */
       --text:#101214;
       --muted:#616b76;
       --border:rgba(16,18,20,.08);
@@ -61,19 +61,19 @@
 
     .logo{display:block;width:140px;height:auto}
 
-    /* Company image — SATU lapis putih (padding), tanpa border */
-    .company-hero{
-      border:none; background:transparent; overflow:visible; border-radius:0; padding:0; margin:12px 0 10px;
-    }
+    /* Company image — SATU lapis putih tipis, radius ikut gambar, tanpa border/outline/box-shadow */
+    .company-hero{margin:12px 0 10px}
     .company-hero .imgwrap{
       padding:var(--img-gap);
       background:#fff;
-      border-radius:var(--img-radius);   /* radius putih = radius gambar */
+      border-radius:var(--img-radius);
+      overflow:hidden;
     }
     .company-hero img{
-      width:100%; height:auto; display:block;
-      border:none;
+      width:100%;height:auto;display:block;
+      border:none; outline:0; box-shadow:none;
       border-radius:var(--img-radius);
+      background:#fff;
     }
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
@@ -87,19 +87,19 @@
     .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 20px 40px rgba(16,18,20,.12);transform:translateY(-1px)}
     .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
 
-    /* Thumbnail Work — SATU lapis putih (padding), tanpa border abu */
+    /* Thumbnail Work — SATU lapis putih tipis, radius ikut gambar, tanpa border abu */
     .thumb{
       position:relative;
       margin:14px;
-      padding:var(--img-gap);      /* putih tipis di luar gambar */
+      padding:var(--img-gap);       /* putih tipis */
       background:#fff;
-      border:none;
-      border-radius:var(--img-radius);  /* radius putih = radius gambar */
+      border:none; outline:0; box-shadow:none;
+      border-radius:var(--img-radius);  /* putih ikut radius gambar */
       overflow:hidden;
     }
     .thumb .img{
       display:block; width:100%; aspect-ratio:16/10; object-fit:cover;
-      border:none;                 /* nggak ada border abu */
+      border:none; outline:0; box-shadow:none;
       border-radius:var(--img-radius);
       background:#fff;
     }
