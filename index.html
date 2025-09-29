@@ -7,14 +7,14 @@
   <meta name="description" content="Digital profile & work showcase for PT Cipta Teknik Utama (CTU)." />
   <meta name="theme-color" content="#1477FF" />
   <meta name="robots" content="noindex" />
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --accent:#1477FF;
-      --radius:24px;
+      --radius:24px;           /* radius kartu */
+      --img-radius:20px;       /* radius gambar (sesuai permintaan) */
       --text:#101214;
       --muted:#616b76;
       --border:rgba(16,18,20,.08);
@@ -60,7 +60,7 @@
 
     .logo{display:block;width:140px;height:auto}
     .company-hero{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);padding:12px;background:#fff}
-    .company-hero img{width:100%;height:auto;display:block;border-radius:calc(var(--radius) - 6px);outline:8px solid #fff;box-shadow:0 18px 40px rgba(16,18,20,.18)}
+    .company-hero img{width:100%;height:auto;display:block;border-radius:var(--img-radius);}
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .pill{border:1px solid rgba(16,18,20,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#3a4048}
@@ -73,17 +73,9 @@
     .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 20px 40px rgba(16,18,20,.12);transform:translateY(-1px)}
     .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
 
-    /* === Minimal notched thumbnail (TL & BR only) === */
-    .thumb{position:relative;margin:14px;padding:12px;border-radius:var(--radius);background:#fff;border:1px solid var(--border)}
-    .thumb .img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:calc(var(--radius) - 6px);outline:8px solid #fff;box-shadow:0 14px 30px rgba(16,18,20,.18);background:#e9eaee}
-    .thumb .cut{position:absolute;z-index:3;width:56px;height:56px;background:#fff;pointer-events:none}
-    .thumb .cut.tl{top:6px;left:6px;border-bottom-right-radius:18px}
-    .thumb .cut.br{bottom:6px;right:6px;border-top-left-radius:18px}
-    /* optional labels (off by default) */
-    .thumb .tag{position:absolute;z-index:4;background:#fff;color:#3a4048;font-weight:600;font-size:12px;padding:6px 10px;border-radius:12px 12px 16px 16px;box-shadow:0 1px 0 rgba(16,18,20,.06)}
-    .thumb .tag.br{border-radius:16px 16px 12px 12px}
-    .thumb .tag.tl{top:10px;left:22px}
-    .thumb .tag.br{bottom:10px;right:22px}
+    /* Thumbnail sederhana: hanya radius 20px */
+    .thumb{position:relative;margin:14px;border-radius:var(--img-radius);overflow:hidden;border:1px solid var(--border);background:#fff}
+    .thumb .img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--img-radius);}
 
     .workcap{padding:8px 14px 14px}
     .worktitle{margin:0 0 4px;font-weight:800;color:#0f1216}
@@ -176,13 +168,7 @@
 
     // Work items
     const projects = [
-      {
-        title:'Hazardous Area Phone Deployment',
-        tag:'Oil & Gas',
-        img:'https://images.unsplash.com/photo-1581092334360-1a1b1c3a9b59?q=80&w=1200&auto=format&fit=crop',
-        url:'#'
-        // cornerTL:'Go back', cornerBR:'404 – Page not found' // aktifkan jika mau label
-      },
+      { title:'Hazardous Area Phone Deployment', tag:'Oil & Gas', img:'https://images.unsplash.com/photo-1581092334360-1a1b1c3a9b59?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'EMC & RF Testing Support', tag:'Compliance', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'Conquest Rollout (Mining)', tag:'Mining', img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'After-Sales Service Program', tag:'Service', img:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop', url:'#' },
@@ -202,11 +188,7 @@
         a.rel = 'noopener';
         a.innerHTML = `
           <div class="thumb">
-            <span class="cut tl"></span>
-            ${p.cornerTL ? `<span class="tag tl">${p.cornerTL}</span>` : ``}
             <img class="img" src="${p.img}" alt="${p.title}">
-            ${p.cornerBR ? `<span class="tag br">${p.cornerBR}</span>` : ``}
-            <span class="cut br"></span>
           </div>
           <div class="workcap">
             <h3 class="worktitle">${p.title}</h3>
@@ -221,4 +203,3 @@
   </script>
 </body>
 </html>
-<!-- build: v4 -->
