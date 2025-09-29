@@ -11,70 +11,44 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --accent:#1477FF;
-      --radius:24px;      /* radius kartu/section */
-      --img-radius:5px;   /* radius gambar & putih luarnya */
-      --img-gap:2px;      /* jarak putih tipis di luar gambar */
-      --text:#101214;
-      --muted:#616b76;
-      --border:rgba(16,18,20,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:radial-gradient(1100px 520px at 50% -10%, #efeee9 0%, #e4e3de 40%, #dcdbd6 65%, #d6d5d0 85%);
-      color:var(--text);
-    }
+:root{
+  --img-radius: 5px;  /* radius gambar */
+  --img-gap: 2px;     /* putih tipis di luar gambar */
+}
 
-    /* NAV */
-    .shell{max-width:1000px;margin:0 auto;padding:20px}
-    .navbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(120%) blur(8px);background:rgba(255,255,255,.65);border-bottom:1px solid var(--border)}
-    .bar{display:flex;align-items:center;gap:14px;padding:10px 14px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:var(--text)}
-    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(20,119,255,.18)}
-    .spacer{flex:1}
-    .tabs{display:flex;gap:6px}
-    .tab{appearance:none;border:none;background:transparent;color:#2b2f36;font-weight:700;padding:8px 12px;border-radius:12px;cursor:pointer}
-    .tab[aria-current="page"], .tab:hover{background:rgba(16,18,20,.06);color:#0f1216}
+/* Work thumbnails */
+.thumb{
+  position:relative;
+  margin:14px;
+  padding:var(--img-gap);
+  background:#fff;
+  border:none; outline:0; box-shadow:none;
+  /* kunci: outer radius = inner radius + gap */
+  border-radius:calc(var(--img-radius) + var(--img-gap));
+  overflow:hidden;
+}
+.thumb .img{
+  display:block; width:100%; aspect-ratio:16/10; object-fit:cover;
+  border:none; outline:0; box-shadow:none;
+  border-radius:var(--img-radius);
+  background:#fff;
+}
 
-    /* GRID & CARDS */
-    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
-    @media(min-width:980px){.grid{grid-template-columns:1.2fr .8fr}}
-    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:0 12px 30px rgba(16,18,20,.08)}
-    .card.soft{background:linear-gradient(180deg,#fff,#fafafa)}
+/* Company image pakai rumus yang sama */
+.company-hero{ margin:12px 0 10px; }
+.company-hero .imgwrap{
+  padding:var(--img-gap);
+  background:#fff;
+  border-radius:calc(var(--img-radius) + var(--img-gap));
+  overflow:hidden;
+}
+.company-hero img{
+  width:100%; height:auto; display:block;
+  border:none; outline:0; box-shadow:none;
+  border-radius:var(--img-radius);
+  background:#fff;
+}
 
-    .hero{display:flex;align-items:center;gap:14px}
-    .avatar{width:64px;height:64px;border-radius:50%;border:3px solid var(--accent);background:#0b0b0c;overflow:hidden;flex:0 0 64px}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-
-    h1{margin:8px 0 6px 0;font-size:clamp(24px,3.6vw,34px);line-height:1.15;color:#0f1216}
-    .sub{margin:0;color:#3a4048;font-weight:600}
-    .muted{color:var(--muted)}
-    .desc{color:#2a2f35;line-height:1.7;margin:8px 0 0}
-
-    .buttons{display:grid;gap:10px;margin-top:14px}
-    .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;border:none;border-radius:14px;padding:12px 14px;transition:transform .08s ease, background .15s ease}
-    .btn:active{transform:scale(.98)}
-
-    .logo{display:block;width:140px;height:auto}
-
-    /* Company image — SATU lapis putih tipis, radius ikut gambar, tanpa border/outline/box-shadow */
-    .company-hero{margin:12px 0 10px}
-    .company-hero .imgwrap{
-      padding:var(--img-gap);
-      background:#fff;
-      border-radius:var(--img-radius);
-      overflow:hidden;
-    }
-    .company-hero img{
-      width:100%;height:auto;display:block;
-      border:none; outline:0; box-shadow:none;
-      border-radius:var(--img-radius);
-      background:#fff;
-    }
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .pill{border:1px solid rgba(16,18,20,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#3a4048}
