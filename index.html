@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTU Digital Business Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0B0B0C;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background-color: #1a1a1a;
+      border: 2px solid #C6FF4D;
+      border-radius: 20px;
+      padding: 24px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #C6FF4D;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #C6FF4D;
+    }
+    h2 {
+      margin: 4px 0 16px 0;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #ddd;
+    }
+    .company-logo {
+      width: 120px;
+      margin: 16px 0;
+    }
+    p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+    .btn {
+      display: block;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      background-color: #C6FF4D;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background-color: #a8e63a;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Foto profil -->
+    <img src="https://via.placeholder.com/120" alt="Profile Photo" class="profile-pic">
+
+    <!-- Nama & Jabatan -->
+    <h1>Arifin Wibowo</h1>
+    <h2>Assistant Director — PT Cipta Teknik Utama</h2>
+
+    <!-- Logo perusahaan -->
+    <img src="https://via.placeholder.com/200x60?text=CTU+Logo" alt="CTU Logo" class="company-logo">
+
+    <!-- Tentang perusahaan -->
+    <p>
+      PT Cipta Teknik Utama is the exclusive distributor of i.safe MOBILE in Indonesia 
+      and the country’s only authorized service center. 
+      We deliver compliant, reliable solutions — from assembly and certification 
+      to after-sales service — tailored to operational needs.
+    </p>
+
+    <!-- Tombol kontak -->
+    <a href="https://wa.me/6281234567890" class="btn">WhatsApp</a>
+    <a href="mailto:youremail@example.com" class="btn">Email</a>
+    <a href="https://linkedin.com/in/username" class="btn">LinkedIn</a>
+    <a href="contact.vcf" class="btn">Save Contact</a>
+  </div>
+</body>
+</html>
