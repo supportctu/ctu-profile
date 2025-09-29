@@ -13,8 +13,11 @@
   <style>
     :root{
       --accent:#1477FF;
-      --radius:24px;      /* radius kartu */
-      --img-radius:10px;  /* <<< radius gambar (Work + company) */
+      --radius:24px;            /* radius kartu/section */
+      --img-radius:5px;         /* <<< radius gambar */
+      --img-border-width:10px;  /* <<< tebal border/frame */
+      --img-gap:2px;            /* <<< jarak gambar ke border (semakin kecil semakin dekat) */
+      --img-border-color:#e9edf3; /* warna frame */
       --text:#101214;
       --muted:#616b76;
       --border:rgba(16,18,20,.08);
@@ -59,8 +62,18 @@
     .btn:active{transform:scale(.98)}
 
     .logo{display:block;width:140px;height:auto}
-    .company-hero{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);padding:12px;background:#fff}
-    .company-hero img{width:100%;height:auto;display:block;border-radius:var(--img-radius);}
+
+    /* Company image — pakai style yang sama (frame 10px, gap 2px) */
+    .company-hero{
+      border-radius:calc(var(--img-radius) + var(--img-border-width));
+      overflow:hidden;
+      border:var(--img-border-width) solid var(--img-border-color);
+      padding:var(--img-gap);
+      background:#fff;
+    }
+    .company-hero img{
+      width:100%;height:auto;display:block;border-radius:var(--img-radius);
+    }
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .pill{border:1px solid rgba(16,18,20,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#3a4048}
@@ -73,9 +86,19 @@
     .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 20px 40px rgba(16,18,20,.12);transform:translateY(-1px)}
     .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
 
-    /* Thumbnail sederhana: radius 10px (via --img-radius) */
-    .thumb{position:relative;margin:14px;border-radius:var(--img-radius);overflow:hidden;border:1px solid var(--border);background:#fff}
-    .thumb .img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--img-radius);}
+    /* Thumbnail sederhana dengan frame 10px & gap 2px */
+    .thumb{
+      position:relative;
+      margin:14px;
+      border-radius:calc(var(--img-radius) + var(--img-border-width));
+      overflow:hidden;
+      border:var(--img-border-width) solid var(--img-border-color);
+      padding:var(--img-gap);
+      background:#fff;
+    }
+    .thumb .img{
+      display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--img-radius);
+    }
 
     .workcap{padding:8px 14px 14px}
     .worktitle{margin:0 0 4px;font-weight:800;color:#0f1216}
