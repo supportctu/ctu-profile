@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arifin Wibowo — CTU</title>
   <meta name="description" content="Digital profile & work showcase for PT Cipta Teknik Utama (CTU)." />
-  <meta name="theme-color" content="#0B0B0C" />
+  <meta name="theme-color" content="#1477FF" />
   <meta name="robots" content="noindex" />
   <!-- Professional font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,111 +13,88 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#1477FF; /* requested blue accent */
-      --ctu-green:var(--accent); /* keep existing references working */
-      --ctu-black:#0B0B0C;
-      --ink:#0e0e10;
-      --card:#141416;
-      --muted:#3a4048;
-      --radius:24px; /* unified corner radius */
+      --accent:#1477FF;        /* blue accent */
+      --radius:24px;           /* unified corner radius */
+      --text:#101214;          /* main text */
+      --muted:#616b76;         /* secondary text */
+      --border:rgba(16,18,20,.08);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;background:radial-gradient(1200px 600px at 50% -10%,#1a1a1a 0%,#0a0a0a 60%,#000 100%);color:#fff}
+    body{
+      margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:radial-gradient(1100px 520px at 50% -10%, #efeee9 0%, #e4e3de 40%, #dcdbd6 65%, #d6d5d0 85%);
+      color:var(--text);
+    }
 
     /* Shell */
-    .shell{max-width:960px;margin:0 auto;padding:20px}
-    .navbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(120%) blur(8px);background:rgba(10,10,10,.6);border-bottom:1px solid rgba(255,255,255,.06)}
+    .shell{max-width:1000px;margin:0 auto;padding:20px}
+    .navbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(120%) blur(8px);background:rgba(255,255,255,.65);border-bottom:1px solid var(--border)}
     .bar{display:flex;align-items:center;gap:14px;padding:10px 14px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
-    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(20,119,255,.18)}box-shadow:0 0 0 3px rgba(198,255,77,.18)}
-    .badge{font-size:12px;color:#0a0a0a;background:var(--ctu-green);border-radius:999px;padding:4px 8px;font-weight:700}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:var(--text)}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(20,119,255,.18)}
+    .badge{font-size:12px;color:#fff;background:var(--accent);border-radius:999px;padding:4px 8px;font-weight:700}
     .spacer{flex:1}
     .tabs{display:flex;gap:6px}
-    .tab{appearance:none;border:none;background:transparent;color:#dfe3e9;font-weight:700;padding:8px 12px;border-radius:12px;cursor:pointer}
-    .tab[aria-current="page"], .tab:hover{background:rgba(255,255,255,.08);color:#fff}
+    .tab{appearance:none;border:none;background:transparent;color:#2b2f36;font-weight:700;padding:8px 12px;border-radius:12px;cursor:pointer}
+    .tab[aria-current="page"], .tab:hover{background:rgba(16,18,20,.06);color:#0f1216}
 
-    /* Cards */
+    /* Layout & cards */
     .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
-    @media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .card{background:#ffffff; border:1px solid rgba(16,18,20,.08); box-shadow:0 12px 30px rgba(16,18,20,.08); border-radius:var(--radius); padding:18px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
-    .card.soft{background:#0e0f11}
+    @media(min-width:980px){.grid{grid-template-columns:1.2fr .8fr}}
+
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:0 12px 30px rgba(16,18,20,.08)}
+    .card.soft{background:linear-gradient(180deg,#fff,#fafafa)}
 
     .hero{display:flex;align-items:center;gap:14px}
-    .avatar{width:64px;height:64px;border-radius:50%;border:3px solid var(--accent);background:#0b0b0c;overflow:hidden;flex:0 0 64px}background:#0b0b0c;overflow:hidden;flex:0 0 64px}
+    .avatar{width:64px;height:64px;border-radius:50%;border:3px solid var(--accent);background:#0b0b0c;overflow:hidden;flex:0 0 64px}
     .avatar img{width:100%;height:100%;object-fit:cover}
 
-    h1{margin:8px 0 6px 0;font-size:clamp(24px,3.6vw,34px);line-height:1.15;color:var(--ctu-green)}
-    .sub{margin:0;color:#d5d9df;font-weight:600}
+    h1{margin:8px 0 6px 0;font-size:clamp(24px,3.6vw,34px);line-height:1.15;color:#0f1216}
+    .sub{margin:0;color:#3a4048;font-weight:600}
     .muted{color:var(--muted)}
-    .desc{color:#dadde3;line-height:1.7;margin:8px 0 0}
+    .desc{color:#2a2f35;line-height:1.7;margin:8px 0 0}
 
     .buttons{display:grid;gap:10px;margin-top:14px}
-    .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#0b0b0c;text-decoration:none;font-weight:800;border:none;border-radius:14px;padding:12px 14px;transition:transform .08s ease, background .15s ease}color:#0b0b0c;text-decoration:none;font-weight:800;border:none;border-radius:14px;padding:12px 14px;transition:transform .08s ease, background .15s ease}
+    .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;border:none;border-radius:14px;padding:12px 14px;transition:transform .08s ease, background .15s ease}
     .btn:active{transform:scale(.98)}
 
-    .logo{display:block;width:140px;height:auto;filter:none}
-    .company-hero{border-radius:var(--radius);overflow:hidden;background:#0b0b0c;border:1px solid rgba(16,18,20,.08)}
-    .company-hero img{width:100%;height:auto;display:block}
-    .company-hero img{width:100%;height:auto;display:block}
+    .logo{display:block;width:140px;height:auto}
+    .company-hero{border-radius:var(--radius);overflow:hidden;background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%);border:1px solid var(--border);padding:12px}
+    .company-hero img{width:100%;height:auto;display:block;border-radius:calc(var(--radius) - 6px);outline:8px solid #fff;box-shadow:0 18px 40px rgba(16,18,20,.18)}
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .pill{border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:12px;color:#dfe3e9}
+    .pill{border:1px solid rgba(16,18,20,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#3a4048}
 
     /* Work */
     .workgrid{display:grid;gap:16px;margin-top:10px;grid-template-columns:1fr}
     @media(min-width:680px){.workgrid{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:980px){.workgrid{grid-template-columns:repeat(3,1fr)}}
-    .workcard{background:#ffffff; border:1px solid rgba(16,18,20,.08); border-radius:var(--radius); overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 10px 26px rgba(16,18,20,.08); transition:transform .08s ease, box-shadow .15s ease, border-color .15s ease}
-    .workcard img{width:100%;height:180px;object-fit:cover;display:block}
-    .workcap{padding:12px 14px}
-    .worktitle{font-weight:800;margin:0 0 4px}
-    .workmeta{font-size:12px;color:#bfc3c9;margin:0}
+    .workcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 10px 26px rgba(16,18,20,.08);transition:transform .08s ease, box-shadow .15s ease, border-color .15s ease}
+    .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 20px 40px rgba(16,18,20,.12);transform:translateY(-1px)}
+
+    /* === Notched stage + framed image === */
+    .stage{position:relative;background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%);border-radius:calc(var(--radius) - 2px);margin:12px;padding:12px}
+    .stage.notched::before,.stage.notched::after{content:"";position:absolute;background:#fff;width:64px;height:64px;pointer-events:none}
+    .stage.notched::before{top:-10px;left:-10px;border-bottom-right-radius:22px}
+    .stage.notched::after{bottom:-10px;right:-10px;border-top-left-radius:22px}
+    .corner-label{position:absolute;background:#fff;color:#3a4048;padding:6px 10px;border-radius:12px 12px 16px 16px;font-size:12px;font-weight:600;box-shadow:0 1px 0 rgba(16,18,20,.06)}
+    .corner-label.br{border-radius:16px 16px 12px 12px}
+    .corner-label:empty{display:none}
+    .corner-label.tl{top:6px;left:14px}
+    .corner-label.br{bottom:6px;right:14px}
+
+    .shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:calc(var(--radius) - 6px);outline:8px solid #fff;box-shadow:0 18px 40px rgba(16,18,20,.20);transition:transform .12s ease}
+
+    .workcap{padding:8px 14px 14px}
+    .worktitle{color:#0f1216;margin:0 0 4px;font-weight:800}
+    .workmeta{color:var(--muted);margin:0}
+
+    /* Links in cards */
+    .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
 
     footer{opacity:.75;text-align:center;font-size:12px;margin:26px 0 14px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-      /* Fix link color/underline inside Work cards */
-    .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
-    .worktitle{ color:#e8ebf0; text-decoration:none }
-    .workcard:hover{border-color:rgba(20,119,255,.45); box-shadow:0 20px 40px rgba(16,18,20,.12); transform:translateY(-1px)}
-    .workcard:hover .worktitle{ color:var(--accent) }
-    /* Wider left column on desktop */
-    @media(min-width:980px){ .grid{ grid-template-columns:1.2fr .8fr } }
-      /* ===== Norden-like light theme overrides ===== */
-    body{background:radial-gradient(1100px 520px at 50% -10%, #efeee9 0%, #e4e3de 40%, #dcdbd6 65%, #d6d5d0 85%); color:#101214}
-    .navbar{background:rgba(255,255,255,.65); border-bottom:1px solid rgba(16,18,20,.06)}
-    .brand{color:#101214}
-    .tab{color:#2b2f36}
-    .tab[aria-current="page"], .tab:hover{background:rgba(16,18,20,.06); color:#0f1216}
-
-    .card{background:#ffffff; border:1px solid rgba(16,18,20,.08); box-shadow:0 12px 30px rgba(16,18,20,.08)}
-    .card.soft{background:linear-gradient(180deg,#fff,#fafafa)}
-    .muted{color:#616b76}
-    .desc{color:#2a2f35}
-    h1{color:#101214}
-    .sub{color:#3a4048}
-
-    .btn{background:var(--ctu-green); color:#101214}
-    .pill{border-color:rgba(16,18,20,.14); color:#3a4048}
-
-    /* Work grid cards — stage + framed screenshot */
-    .workcard{background:#ffffff; border:1px solid rgba(16,18,20,.08); border-radius:22px; overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 10px 26px rgba(16,18,20,.08)}
-    .workcard:hover{border-color:rgba(198,255,77,.45); box-shadow:0 20px 40px rgba(16,18,20,.12)}
-    .stage{background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%); border-radius:calc(var(--radius) - 2px); margin:12px; padding:12px}
-    .shot{display:block; width:100%; height:180px; object-fit:cover; border-radius:calc(var(--radius) - 6px); box-shadow:0 18px 40px rgba(16,18,20,.20); outline:8px solid #fff}
-    .workcap{padding:8px 14px 14px}
-    .worktitle{color:#0f1216; margin:0 0 4px; font-weight:800}
-    .workmeta{color:#616b76; margin:0}
-
-    /* Wider left column on desktop */
-    @media(min-width:980px){ .grid{ grid-template-columns:1.2fr .8fr } }
-      /* Final blue overrides */
-    .btn{background:var(--accent);color:#fff !important}
-    .badge{background:var(--accent);color:#fff !important}
-    .chip.active{background:var(--accent);color:#fff !important}
-    .workcard:hover{border-color:rgba(20,119,255,.45) !important}
-    .stage{background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%)}
-    .shot{outline:8px solid #fff;border-radius:calc(var(--radius) - 6px)}
   </style>
 </head>
 <body>
@@ -125,7 +102,7 @@
   <div class="navbar">
     <div class="shell bar">
       <div class="brand" aria-label="Brand">
-        <span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:#0b0b0c;border:2px solid var(--ctu-green);font-size:14px">C</span>
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:#0b0b0c;border:2px solid var(--accent);color:#fff;font-size:14px">C</span>
         <span>CTU • Norden-style</span>
         <span class="dot" title="Available"></span>
       </div>
@@ -213,7 +190,7 @@
 
     // Render work items (edit this array to add your projects)
     const projects = [
-      { title:'Hazardous Area Phone Deployment', tag:'Oil & Gas', img:'https://images.unsplash.com/photo-1581092334360-1a1b1c3a9b59?q=80&w=1200&auto=format&fit=crop', url:'#' },
+      { title:'Hazardous Area Phone Deployment', tag:'Oil & Gas', img:'https://images.unsplash.com/photo-1581092334360-1a1b1c3a9b59?q=80&w=1200&auto=format&fit=crop', url:'#', cornerTL:'Go back', cornerBR:'404 – Page not found' },
       { title:'EMC & RF Testing Support', tag:'Compliance', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'Conquest Rollout (Mining)', tag:'Mining', img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'After‑Sales Service Program', tag:'Service', img:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop', url:'#' },
@@ -230,12 +207,14 @@
         a.target = p.url && p.url.startsWith('http') ? '_blank' : '_self';
         a.rel = 'noopener';
         a.innerHTML = `
-          <div class=\"stage\">
-            <img class=\"shot\" src=\"${p.img}\" alt=\"${p.title}\">
+          <div class="stage notched">
+            <span class="corner-label tl">${p.cornerTL || ''}</span>
+            <img class="shot" src="${p.img}" alt="${p.title}">
+            <span class="corner-label br">${p.cornerBR || ''}</span>
           </div>
-          <div class=\"workcap\">
-            <h3 class=\"worktitle\">${p.title}</h3>
-            <p class=\"workmeta\">${p.tag || ''}</p>
+          <div class="workcap">
+            <h3 class="worktitle">${p.title}</h3>
+            <p class="workmeta">${p.tag || ''}</p>
           </div>`;
         grid.appendChild(a);
       });
