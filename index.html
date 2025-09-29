@@ -13,36 +13,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#1477FF;        /* blue accent */
-      --radius:24px;           /* unified corner radius */
-      --text:#101214;          /* main text */
-      --muted:#616b76;         /* secondary text */
+      --accent:#1477FF;          /* biru utama */
+      --radius:24px;             /* radius seragam */
+      --text:#101214;            /* teks utama */
+      --muted:#616b76;           /* teks sekunder */
       --border:rgba(16,18,20,.08);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:radial-gradient(1100px 520px at 50% -10%, #efeee9 0%, #e4e3de 40%, #dcdbd6 65%, #d6d5d0 85%);
       color:var(--text);
     }
 
-    /* Shell */
+    /* NAV */
     .shell{max-width:1000px;margin:0 auto;padding:20px}
     .navbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(120%) blur(8px);background:rgba(255,255,255,.65);border-bottom:1px solid var(--border)}
     .bar{display:flex;align-items:center;gap:14px;padding:10px 14px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:var(--text)}
     .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(20,119,255,.18)}
-    .badge{font-size:12px;color:#fff;background:var(--accent);border-radius:999px;padding:4px 8px;font-weight:700}
     .spacer{flex:1}
     .tabs{display:flex;gap:6px}
     .tab{appearance:none;border:none;background:transparent;color:#2b2f36;font-weight:700;padding:8px 12px;border-radius:12px;cursor:pointer}
     .tab[aria-current="page"], .tab:hover{background:rgba(16,18,20,.06);color:#0f1216}
 
-    /* Layout & cards */
+    /* GRID & CARDS */
     .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
     @media(min-width:980px){.grid{grid-template-columns:1.2fr .8fr}}
-
     .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:0 12px 30px rgba(16,18,20,.08)}
     .card.soft{background:linear-gradient(180deg,#fff,#fafafa)}
 
@@ -66,35 +65,52 @@
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .pill{border:1px solid rgba(16,18,20,.14);padding:6px 10px;border-radius:999px;font-size:12px;color:#3a4048}
 
-    /* Work */
+    /* WORK GRID */
     .workgrid{display:grid;gap:16px;margin-top:10px;grid-template-columns:1fr}
     @media(min-width:680px){.workgrid{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:980px){.workgrid{grid-template-columns:repeat(3,1fr)}}
     .workcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 10px 26px rgba(16,18,20,.08);transition:transform .08s ease, box-shadow .15s ease, border-color .15s ease}
     .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 20px 40px rgba(16,18,20,.12);transform:translateY(-1px)}
-
-    /* === Notched stage + framed image === */
-    .stage{position:relative;background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%);border-radius:calc(var(--radius) - 2px);margin:12px;padding:12px}
-    .stage.notched::before,.stage.notched::after{content:"";position:absolute;background:#fff;width:64px;height:64px;pointer-events:none}
-    .stage.notched::before{top:-10px;left:-10px;border-bottom-right-radius:22px}
-    .stage.notched::after{bottom:-10px;right:-10px;border-top-left-radius:22px}
-    .corner-label{position:absolute;background:#fff;color:#3a4048;padding:6px 10px;border-radius:12px 12px 16px 16px;font-size:12px;font-weight:600;box-shadow:0 1px 0 rgba(16,18,20,.06)}
-    .corner-label.br{border-radius:16px 16px 12px 12px}
-    .corner-label:empty{display:none}
-    .corner-label.tl{top:6px;left:14px}
-    .corner-label.br{bottom:6px;right:14px}
-
-    .shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:calc(var(--radius) - 6px);outline:8px solid #fff;box-shadow:0 18px 40px rgba(16,18,20,.20);transition:transform .12s ease}
-
-    .workcap{padding:8px 14px 14px}
-    .worktitle{color:#0f1216;margin:0 0 4px;font-weight:800}
-    .workmeta{color:var(--muted);margin:0}
-
-    /* Links in cards */
     .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
 
+    /* ==== THUMB: notched like reference ==== */
+    .thumb{
+      position:relative;
+      margin:14px;
+      padding:14px;
+      border-radius:var(--radius);
+      background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%);
+      border:1px solid var(--border);
+    }
+    .thumb .img{
+      position:relative; z-index:1; display:block; width:100%;
+      aspect-ratio:16/10; object-fit:cover;
+      border-radius:calc(var(--radius) - 6px);
+      outline:8px solid #fff; box-shadow:0 18px 40px rgba(16,18,20,.20);
+      background:#e9eaee;
+    }
+    .notch{
+      position:absolute; z-index:2; width:64px; height:64px;
+      background:#fff; pointer-events:none;
+      filter:drop-shadow(0 6px 8px rgba(16,18,20,.06));
+    }
+    .notch.tl{ top:-18px; left:-18px; border-bottom-right-radius:22px; }
+    .notch.br{ bottom:-18px; right:-18px; border-top-left-radius:22px; }
+
+    .label{
+      position:absolute; z-index:3; background:#fff; color:#3a4048;
+      font-weight:600; font-size:12px; padding:6px 10px;
+      border-radius:12px 12px 16px 16px; box-shadow:0 1px 0 rgba(16,18,20,.06);
+    }
+    .label.br{ border-radius:16px 16px 12px 12px; }
+    .label.tl{ top:8px; left:20px; }
+    .label.br{ bottom:8px; right:20px; }
+
+    .workcap{padding:8px 14px 14px}
+    .worktitle{margin:0 0 4px;font-weight:800;color:#0f1216}
+    .workmeta{margin:0;color:var(--muted)}
+
     footer{opacity:.75;text-align:center;font-size:12px;margin:26px 0 14px}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
@@ -128,7 +144,7 @@
               <p class="sub">Assistant Director — PT Cipta Teknik Utama</p>
             </div>
           </header>
-          <p class="desc">PT Cipta Teknik Utama is the exclusive distributor of <strong>i.safe MOBILE</strong> in Indonesia and the country’s only authorized service center. We deliver compliant, reliable solutions — from assembly and certification to after‑sales service — tailored to operational needs.</p>
+          <p class="desc">PT Cipta Teknik Utama is the exclusive distributor of <strong>i.safe MOBILE</strong> in Indonesia and the country’s only authorized service center. We deliver compliant, reliable solutions — from assembly and certification to after-sales service — tailored to operational needs.</p>
           <div class="pillrow" aria-label="certifications">
             <span class="pill">ATEX (EU)</span>
             <span class="pill">IECEx (International)</span>
@@ -167,36 +183,42 @@
   </div>
 
   <script>
-    // Simple client-side router for two tabs (hash-based)
+    // Simple hash-tabs
     const tabs = {
       profile: {btn: document.getElementById('tab-profile'), sec: document.getElementById('profile')},
       work: {btn: document.getElementById('tab-work'), sec: document.getElementById('work')}
     };
     function show(which){
-      for(const key of Object.keys(tabs)){
-        const active = key===which;
-        tabs[key].sec.hidden = !active;
-        tabs[key].btn.setAttribute('aria-current', active? 'page' : 'false');
+      for(const k of Object.keys(tabs)){
+        const active = k===which;
+        tabs[k].sec.hidden = !active;
+        tabs[k].btn.setAttribute('aria-current', active ? 'page' : 'false');
       }
       if(location.hash !== '#' + which) history.replaceState(null, '', '#' + which);
     }
     tabs.profile.btn.addEventListener('click',()=>show('profile'));
     tabs.work.btn.addEventListener('click',()=>show('work'));
-    window.addEventListener('hashchange',()=>{
-      const h = (location.hash||'#profile').replace('#','');
-      show(h in tabs ? h : 'profile');
-    });
+    window.addEventListener('hashchange',()=>{ const h=(location.hash||'#profile').replace('#',''); show(h in tabs?h:'profile'); });
     show((location.hash||'#profile').replace('#',''));
 
-    // Render work items (edit this array to add your projects)
+    // Work items (edit here)
     const projects = [
-      { title:'Hazardous Area Phone Deployment', tag:'Oil & Gas', img:'https://images.unsplash.com/photo-1581092334360-1a1b1c3a9b59?q=80&w=1200&auto=format&fit=crop', url:'#', cornerTL:'Go back', cornerBR:'404 – Page not found' },
+      {
+        title:'Hazardous Area Phone Deployment',
+        tag:'Oil & Gas',
+        img:'https://images.unsplash.com/photo-1581092334360-1a1b1c3a9b59?q=80&w=1200&auto=format&fit=crop',
+        url:'#',
+        cornerTL:'Go back',
+        cornerBR:'404 – Page not found'
+      },
       { title:'EMC & RF Testing Support', tag:'Compliance', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'Conquest Rollout (Mining)', tag:'Mining', img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop', url:'#' },
-      { title:'After‑Sales Service Program', tag:'Service', img:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop', url:'#' },
+      { title:'After-Sales Service Program', tag:'Service', img:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'ATEX/IECEx Certification Advisory', tag:'Certification', img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop', url:'#' },
       { title:'TKDN Assembly Line Setup', tag:'Manufacturing', img:'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=1200&auto=format&fit=crop', url:'#' }
     ];
+
+    // Render Work cards
     const grid = document.getElementById('work-grid');
     function render(){
       grid.innerHTML = '';
@@ -207,10 +229,12 @@
         a.target = p.url && p.url.startsWith('http') ? '_blank' : '_self';
         a.rel = 'noopener';
         a.innerHTML = `
-          <div class="stage notched">
-            <span class="corner-label tl">${p.cornerTL || ''}</span>
-            <img class="shot" src="${p.img}" alt="${p.title}">
-            <span class="corner-label br">${p.cornerBR || ''}</span>
+          <div class="thumb">
+            <span class="notch tl"></span>
+            ${p.cornerTL ? `<span class="label tl">${p.cornerTL}</span>` : ``}
+            <img class="img" src="${p.img}" alt="${p.title}">
+            ${p.cornerBR ? `<span class="label br">${p.cornerBR}</span>` : ``}
+            <span class="notch br"></span>
           </div>
           <div class="workcap">
             <h3 class="worktitle">${p.title}</h3>
