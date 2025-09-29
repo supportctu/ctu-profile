@@ -70,6 +70,41 @@
 
     footer{opacity:.75;text-align:center;font-size:12px;margin:26px 0 14px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+      /* Fix link color/underline inside Work cards */
+    .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
+    .worktitle{ color:#e8ebf0; text-decoration:none }
+    .workcard:hover{ border-color:rgba(198,255,77,.45); box-shadow:0 0 0 2px rgba(198,255,77,.12) inset, 0 8px 28px rgba(0,0,0,.5); transform:translateY(-1px) }
+    .workcard:hover .worktitle{ color:var(--ctu-green) }
+    /* Wider left column on desktop */
+    @media(min-width:980px){ .grid{ grid-template-columns:1.2fr .8fr } }
+      /* ===== Norden-like light theme overrides ===== */
+    body{background:radial-gradient(1100px 520px at 50% -10%, #efeee9 0%, #e4e3de 40%, #dcdbd6 65%, #d6d5d0 85%); color:#101214}
+    .navbar{background:rgba(255,255,255,.65); border-bottom:1px solid rgba(16,18,20,.06)}
+    .brand{color:#101214}
+    .tab{color:#2b2f36}
+    .tab[aria-current="page"], .tab:hover{background:rgba(16,18,20,.06); color:#0f1216}
+
+    .card{background:#ffffff; border:1px solid rgba(16,18,20,.08); box-shadow:0 12px 30px rgba(16,18,20,.08)}
+    .card.soft{background:linear-gradient(180deg,#fff,#fafafa)}
+    .muted{color:#616b76}
+    .desc{color:#2a2f35}
+    h1{color:#101214}
+    .sub{color:#3a4048}
+
+    .btn{background:var(--ctu-green); color:#101214}
+    .pill{border-color:rgba(16,18,20,.14); color:#3a4048}
+
+    /* Work grid cards — stage + framed screenshot */
+    .workcard{background:#ffffff; border:1px solid rgba(16,18,20,.08); border-radius:22px; overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 10px 26px rgba(16,18,20,.08)}
+    .workcard:hover{border-color:rgba(198,255,77,.45); box-shadow:0 20px 40px rgba(16,18,20,.12)}
+    .stage{background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%); border-radius:20px; margin:12px; padding:12px}
+    .shot{display:block; width:100%; height:180px; object-fit:cover; border-radius:16px; box-shadow:0 18px 40px rgba(16,18,20,.20); outline:8px solid #fff}
+    .workcap{padding:8px 14px 14px}
+    .worktitle{color:#0f1216; margin:0 0 4px; font-weight:800}
+    .workmeta{color:#616b76; margin:0}
+
+    /* Wider left column on desktop */
+    @media(min-width:980px){ .grid{ grid-template-columns:1.2fr .8fr } }
   </style>
 </head>
 <body>
@@ -181,12 +216,7 @@
         a.className = 'workcard';
         a.target = p.url && p.url.startsWith('http') ? '_blank' : '_self';
         a.rel = 'noopener';
-        a.innerHTML = `
-          <img src="${p.img}" alt="${p.title}">
-          <div class="workcap">
-            <h3 class="worktitle">${p.title}</h3>
-            <p class="workmeta">${p.tag || ''}</p>
-          </div>`;
+        a.innerHTML = `\n          <div class=\"stage\">\n            <img class=\"shot\" src=\"${p.img}\" alt=\"${p.title}\">\n          </div>\n          <div class=\"workcap\">\n            <h3 class=\"worktitle\">${p.title}</h3>\n            <p class=\"workmeta\">${p.tag || ''}</p>\n          </div>`;
         grid.appendChild(a);
       });
     }
@@ -197,3 +227,4 @@
   </script>
 </body>
 </html>
+
