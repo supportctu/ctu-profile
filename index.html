@@ -13,9 +13,9 @@
   <style>
     :root{
       --accent:#1477FF;
-      --card-radius:24px;     /* kartu (profile/work section) */
-      --img-radius:5px;       /* sudut foto */
-      --img-gap:2px;          /* putih tipis di luar foto */
+      --card-radius:24px;
+      --img-radius:5px;
+      --img-gap:2px;
       --text:#101214;
       --muted:#616B76;
       --line:rgba(16,18,20,.08);
@@ -28,18 +28,13 @@
       color:var(--text);
       background:linear-gradient(180deg,#f6f7f8, #f1f2f4);
     }
-
-    /* Shell */
     .container{max-width:1040px;margin:0 auto;padding:20px}
-
-    /* Topbar minimal */
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
     .brand{display:flex;align-items:center;gap:10px}
     .brand img{height:28px;width:auto;display:block}
     .toplink{appearance:none;border:none;background:transparent;font-weight:700;color:#2b2f36;padding:8px 10px;border-radius:10px;cursor:pointer;text-decoration:none}
     .toplink:hover{background:rgba(16,18,20,.06);color:#0f1216}
 
-    /* Hero image (logo di atas, gambar dulu, baru profil) */
     .imgframe{
       padding:var(--img-gap);
       background:#fff;
@@ -52,7 +47,6 @@
       width:100%;height:auto;display:block;border:none;outline:0;box-shadow:none;border-radius:var(--img-radius);background:#fff;
     }
 
-    /* Profile card */
     .card{
       background:#fff;border:1px solid var(--line);border-radius:var(--card-radius);
       padding:20px;box-shadow:0 10px 26px rgba(16,18,20,.08)
@@ -70,7 +64,6 @@
     .btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:var(--accent);color:#fff;border:none;border-radius:14px;font-weight:800;padding:12px 14px}
     .btn:active{transform:scale(.98)}
 
-    /* Work section */
     .section{margin-top:22px}
     .section h2{margin:0 0 6px;font-size:clamp(22px,3vw,28px)}
     .section p.muted{margin:0 0 14px;color:var(--muted)}
@@ -93,20 +86,20 @@
     <!-- LOGO + link -->
     <header class="topbar">
       <div class="brand">
-        <img src="https://dummyimage.com/160x40/1477FF/ffffff.png&text=CTU+Logo" alt="CTU Logo" />
+        <img src="assets/logo.png" alt="CTU Logo" />
       </div>
       <a class="toplink" href="#work">Work</a>
     </header>
 
     <!-- HERO IMAGE -->
     <div class="imgframe" style="margin-bottom:16px">
-      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" alt="CTU office / devices" />
+      <img src="assets/hero.jpg" alt="CTU office / devices" />
     </div>
 
     <!-- PROFILE CARD -->
     <article class="card">
       <div class="profile-head">
-        <span class="avatar"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=256&auto=format&fit=crop" alt="Profile photo" /></span>
+        <span class="avatar"><img src="assets/avatar.jpg" alt="Profile photo" /></span>
         <div>
           <h1>Arifin Wibowo</h1>
           <p class="sub">Assistant Director — PT Cipta Teknik Utama</p>
@@ -127,6 +120,7 @@
         <a class="btn" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20baru%20scan%20QR%20card%20Anda.">WhatsApp</a>
         <a class="btn" href="mailto:youremail@example.com?subject=Inquiry%20from%20QR%20card">Email</a>
         <a class="btn" href="https://linkedin.com/in/username" target="_blank" rel="noopener">LinkedIn</a>
+        <!-- kalau vcf kamu taruh di assets, ganti jadi href="assets/contact.vcf" -->
         <a class="btn" href="contact.vcf" download>Save Contact (.vcf)</a>
       </div>
     </article>
@@ -145,12 +139,12 @@
 
   <script>
     const projects = [
-      { title:'Hazardous Area Phone Deployment', tag:'Oil & Gas', img:'https://images.unsplash.com/photo-1581092334360-1a1b1c3a9b59?q=80&w=1200&auto=format&fit=crop', url:'#' },
-      { title:'EMC & RF Testing Support', tag:'Compliance', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop', url:'#' },
-      { title:'Conquest Rollout (Mining)', tag:'Mining', img:'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop', url:'#' },
-      { title:'After-Sales Service Program', tag:'Service', img:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop', url:'#' },
-      { title:'ATEX/IECEx Certification Advisory', tag:'Certification', img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop', url:'#' },
-      { title:'TKDN Assembly Line Setup', tag:'Manufacturing', img:'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=1200&auto=format&fit=crop', url:'#' }
+      { title:'Hazardous Area Phone Deployment', tag:'Oil & Gas',        img:'assets/work-1.jpg', url:'#' },
+      { title:'EMC & RF Testing Support',        tag:'Compliance',       img:'assets/work-2.jpg', url:'#' },
+      { title:'Conquest Rollout (Mining)',       tag:'Mining',           img:'assets/work-3.jpg', url:'#' },
+      { title:'After-Sales Service Program',     tag:'Service',          img:'assets/work-4.jpg', url:'#' },
+      { title:'ATEX/IECEx Certification Advisory', tag:'Certification',  img:'assets/work-5.jpg', url:'#' },
+      { title:'TKDN Assembly Line Setup',        tag:'Manufacturing',    img:'assets/work-6.jpg', url:'#' }
     ];
 
     const grid = document.getElementById('work-grid');
