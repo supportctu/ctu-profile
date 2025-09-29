@@ -14,10 +14,9 @@
     :root{
       --accent:#1477FF;
       --radius:24px;            /* radius kartu/section */
-      --img-radius:5px;         /* <<< radius gambar */
-      --img-border-width:10px;  /* <<< tebal border/frame */
-      --img-gap:2px;            /* <<< jarak gambar ke border (semakin kecil semakin dekat) */
-      --img-border-color:#e9edf3; /* warna frame */
+      --img-radius:5px;         /* radius gambar */
+      --img-border-width:10px;  /* tebal border gambar */
+      --img-border-color:#e9edf3;
       --text:#101214;
       --muted:#616b76;
       --border:rgba(16,18,20,.08);
@@ -63,16 +62,12 @@
 
     .logo{display:block;width:140px;height:auto}
 
-    /* Company image — pakai style yang sama (frame 10px, gap 2px) */
-    .company-hero{
-      border-radius:calc(var(--img-radius) + var(--img-border-width));
-      overflow:hidden;
-      border:var(--img-border-width) solid var(--img-border-color);
-      padding:var(--img-gap);
-      background:#fff;
-    }
+    /* Company image: SATU border di IMG saja */
+    .company-hero{border:none;padding:0;background:transparent;overflow:visible;border-radius:0}
     .company-hero img{
-      width:100%;height:auto;display:block;border-radius:var(--img-radius);
+      width:100%;height:auto;display:block;
+      border:var(--img-border-width) solid var(--img-border-color);
+      border-radius:var(--img-radius);
     }
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
@@ -86,18 +81,13 @@
     .workcard:hover{border-color:rgba(20,119,255,.45);box-shadow:0 20px 40px rgba(16,18,20,.12);transform:translateY(-1px)}
     .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
 
-    /* Thumbnail sederhana dengan frame 10px & gap 2px */
-    .thumb{
-      position:relative;
-      margin:14px;
-      border-radius:calc(var(--img-radius) + var(--img-border-width));
-      overflow:hidden;
-      border:var(--img-border-width) solid var(--img-border-color);
-      padding:var(--img-gap);
-      background:#fff;
-    }
+    /* Thumbnail Work: SATU border di IMG saja */
+    .thumb{position:relative;margin:14px;padding:0;border:none;border-radius:0;background:transparent;overflow:visible}
     .thumb .img{
-      display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--img-radius);
+      display:block;width:100%;aspect-ratio:16/10;object-fit:cover;
+      border:var(--img-border-width) solid var(--img-border-color);
+      border-radius:var(--img-radius);
+      background:#fff;
     }
 
     .workcap{padding:8px 14px 14px}
