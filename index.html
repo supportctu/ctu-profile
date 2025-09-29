@@ -9,12 +9,13 @@
   <meta name="robots" content="noindex" />
   <style>
     :root{
-      --ctu-green:#C6FF4D;
+      --accent:#1477FF; /* requested blue accent */
+      --ctu-green:var(--accent); /* keep existing references working */
       --ctu-black:#0B0B0C;
       --ink:#0e0e10;
       --card:#141416;
-      --muted:#bfc3c9;
-      --radius:22px;
+      --muted:#3a4048;
+      --radius:24px; /* unified corner radius */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -25,7 +26,7 @@
     .navbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(120%) blur(8px);background:rgba(10,10,10,.6);border-bottom:1px solid rgba(255,255,255,.06)}
     .bar{display:flex;align-items:center;gap:14px;padding:10px 14px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
-    .dot{width:10px;height:10px;border-radius:999px;background:var(--ctu-green);box-shadow:0 0 0 3px rgba(198,255,77,.18)}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(20,119,255,.18)}box-shadow:0 0 0 3px rgba(198,255,77,.18)}
     .badge{font-size:12px;color:#0a0a0a;background:var(--ctu-green);border-radius:999px;padding:4px 8px;font-weight:700}
     .spacer{flex:1}
     .tabs{display:flex;gap:6px}
@@ -35,11 +36,11 @@
     /* Cards */
     .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
     @media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .card{background:linear-gradient(180deg,#151517,#111);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+    .card{background:#ffffff; border:1px solid rgba(16,18,20,.08); box-shadow:0 12px 30px rgba(16,18,20,.08); border-radius:var(--radius); padding:18px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
     .card.soft{background:#0e0f11}
 
     .hero{display:flex;align-items:center;gap:14px}
-    .avatar{width:64px;height:64px;border-radius:50%;border:3px solid var(--ctu-green);background:#0b0b0c;overflow:hidden;flex:0 0 64px}
+    .avatar{width:64px;height:64px;border-radius:50%;border:3px solid var(--accent);background:#0b0b0c;overflow:hidden;flex:0 0 64px}background:#0b0b0c;overflow:hidden;flex:0 0 64px}
     .avatar img{width:100%;height:100%;object-fit:cover}
 
     h1{margin:8px 0 6px 0;font-size:clamp(24px,3.6vw,34px);line-height:1.15;color:var(--ctu-green)}
@@ -48,11 +49,12 @@
     .desc{color:#dadde3;line-height:1.7;margin:8px 0 0}
 
     .buttons{display:grid;gap:10px;margin-top:14px}
-    .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ctu-green);color:#0b0b0c;text-decoration:none;font-weight:800;border:none;border-radius:14px;padding:12px 14px;transition:transform .08s ease, background .15s ease}
+    .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#0b0b0c;text-decoration:none;font-weight:800;border:none;border-radius:14px;padding:12px 14px;transition:transform .08s ease, background .15s ease}color:#0b0b0c;text-decoration:none;font-weight:800;border:none;border-radius:14px;padding:12px 14px;transition:transform .08s ease, background .15s ease}
     .btn:active{transform:scale(.98)}
 
     .logo{display:block;width:140px;height:auto;filter:none}
-    .company-hero{border-radius:18px;overflow:hidden;background:#0b0b0c;border:1px solid rgba(255,255,255,.08)}
+    .company-hero{border-radius:var(--radius);overflow:hidden;background:#0b0b0c;border:1px solid rgba(16,18,20,.08)}
+    .company-hero img{width:100%;height:auto;display:block}
     .company-hero img{width:100%;height:auto;display:block}
 
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
@@ -62,7 +64,7 @@
     .workgrid{display:grid;gap:16px;margin-top:10px;grid-template-columns:1fr}
     @media(min-width:680px){.workgrid{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:980px){.workgrid{grid-template-columns:repeat(3,1fr)}}
-    .workcard{background:linear-gradient(180deg,#121316,#0d0e10);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.5)}
+    .workcard{background:#ffffff; border:1px solid rgba(16,18,20,.08); border-radius:var(--radius); overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 10px 26px rgba(16,18,20,.08); transition:transform .08s ease, box-shadow .15s ease, border-color .15s ease}
     .workcard img{width:100%;height:180px;object-fit:cover;display:block}
     .workcap{padding:12px 14px}
     .worktitle{font-weight:800;margin:0 0 4px}
@@ -73,8 +75,8 @@
       /* Fix link color/underline inside Work cards */
     .workcard, .workcard:link, .workcard:visited{ text-decoration:none; color:inherit }
     .worktitle{ color:#e8ebf0; text-decoration:none }
-    .workcard:hover{ border-color:rgba(198,255,77,.45); box-shadow:0 0 0 2px rgba(198,255,77,.12) inset, 0 8px 28px rgba(0,0,0,.5); transform:translateY(-1px) }
-    .workcard:hover .worktitle{ color:var(--ctu-green) }
+    .workcard:hover{border-color:rgba(20,119,255,.45); box-shadow:0 20px 40px rgba(16,18,20,.12); transform:translateY(-1px)}
+    .workcard:hover .worktitle{ color:var(--accent) }
     /* Wider left column on desktop */
     @media(min-width:980px){ .grid{ grid-template-columns:1.2fr .8fr } }
       /* ===== Norden-like light theme overrides ===== */
@@ -97,8 +99,8 @@
     /* Work grid cards — stage + framed screenshot */
     .workcard{background:#ffffff; border:1px solid rgba(16,18,20,.08); border-radius:22px; overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 10px 26px rgba(16,18,20,.08)}
     .workcard:hover{border-color:rgba(198,255,77,.45); box-shadow:0 20px 40px rgba(16,18,20,.12)}
-    .stage{background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%); border-radius:20px; margin:12px; padding:12px}
-    .shot{display:block; width:100%; height:180px; object-fit:cover; border-radius:16px; box-shadow:0 18px 40px rgba(16,18,20,.20); outline:8px solid #fff}
+    .stage{background:radial-gradient(600px 220px at 50% 10%, #f5f4f0 0%, #ecebe7 55%, #e3e2de 100%); border-radius:calc(var(--radius) - 2px); margin:12px; padding:12px}
+    .shot{display:block; width:100%; height:180px; object-fit:cover; border-radius:calc(var(--radius) - 6px); box-shadow:0 18px 40px rgba(16,18,20,.20); outline:8px solid #fff}
     .workcap{padding:8px 14px 14px}
     .worktitle{color:#0f1216; margin:0 0 4px; font-weight:800}
     .workmeta{color:#616b76; margin:0}
