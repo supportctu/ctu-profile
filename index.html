@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brilliant Hugo — CTU</title>
-  <meta name="description" content="Digital profile & work showcase for PT Cipta Teknik Utama (CTU)." />
+  <title>CTU — Profile</title>
   <meta name="theme-color" content="#1477FF" />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,12 +28,15 @@
       background:linear-gradient(180deg,#f6f7f8, #f1f2f4);
     }
     .container{max-width:1040px;margin:0 auto;padding:20px}
+
+    /* Top */
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
     .brand{display:flex;align-items:center;gap:10px}
     .brand img{height:28px;width:auto;display:block}
     .toplink{appearance:none;border:none;background:transparent;font-weight:700;color:#2b2f36;padding:8px 10px;border-radius:10px;cursor:pointer;text-decoration:none}
     .toplink:hover{background:rgba(16,18,20,.06);color:#0f1216}
 
+    /* Hero image */
     .imgframe{
       padding:var(--img-gap);
       background:#fff;
@@ -42,11 +44,13 @@
       overflow:hidden;
       box-shadow:0 10px 28px rgba(16,18,20,.08);
       border:1px solid var(--line);
+      margin-bottom:16px;
     }
     .imgframe img{
       width:100%;height:auto;display:block;border:none;outline:0;box-shadow:none;border-radius:var(--img-radius);background:#fff;
     }
 
+    /* Card */
     .card{
       background:#fff;border:1px solid var(--line);border-radius:var(--card-radius);
       padding:20px;box-shadow:0 10px 26px rgba(16,18,20,.08)
@@ -64,9 +68,10 @@
     .btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:var(--accent);color:#fff;border:none;border-radius:14px;font-weight:800;padding:12px 14px}
     .btn:active{transform:scale(.98)}
 
+    /* Work */
     .section{margin-top:22px}
     .section h2{margin:0 0 6px;font-size:clamp(22px,3vw,28px)}
-    .section p.muted{margin:0 0 14px;color:var(--muted)}
+    .section p.muted{margin:0 0 14px;color:#2b2f36}
 
     .workgrid{display:grid;gap:16px;grid-template-columns:1fr}
     @media(min-width:680px){.workgrid{grid-template-columns:repeat(2,1fr)}}
@@ -76,7 +81,7 @@
     .thumb img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border:none;outline:0;box-shadow:none;border-radius:var(--img-radius);background:#fff}
     .workcap{padding:8px 14px 16px}
     .worktitle{margin:0 0 4px;font-weight:800}
-    .workmeta{margin:0;color:var(--muted)}
+    .workmeta{margin:0;color:#616B76}
 
     footer{opacity:.75;text-align:center;font-size:12px;margin:28px 0}
   </style>
@@ -86,55 +91,44 @@
     <!-- LOGO + link -->
     <header class="topbar">
       <div class="brand">
-        <img src="assets/Logo.png" alt="CTU Logo" />
+        <img src="assets/logo.png" alt="CTU Logo" />
       </div>
-      <a class="toplink" href="#About CTU">About CTU</a>
+      <a class="toplink" href="#work">Work</a>
     </header>
 
     <!-- HERO IMAGE -->
-    <div class="imgframe" style="margin-bottom:16px">
-      <img src="assets/Hero.jpeg" alt="CTU office / devices" />
+    <div class="imgframe">
+      <img id="hero-img" src="assets/hero.jpg" alt="Hero image" />
     </div>
 
     <!-- PROFILE CARD -->
     <article class="card">
       <div class="profile-head">
-        <span class="avatar"><img src="assets/avatar.jpg" alt="Profile photo" /></span>
+        <span class="avatar"><img id="avatar-img" src="assets/avatar.jpg" alt="Profile photo" /></span>
         <div>
-          <h1>Brilliant Hugo</h1>
-          <p class="sub">Assistant — PT Cipta Teknik Utama</p>
+          <h1 id="name">Nama</h1>
+          <p class="sub" id="title">Jabatan — PT Cipta Teknik Utama</p>
         </div>
       </div>
 
-      <p class="desc">
-        PT Cipta Teknik Utama is the official distributor of Vewell and the exclusive distributor and sole authorized service center of i.safe MOBILE in Indonesia.
-We deliver end-to-end IT & Safety solutions with over 10 years of experience, recognized for integrity, technical expertise, and customer satisfaction across Southeast Asia.
-      </p>
+      <p class="desc" id="desc">Deskripsi singkat perusahaan / peran. Ini akan diisi dari data per orang.</p>
 
-      <div class="pillrow">
-        <span class="pill"> Vewell as a Top 1 Brand (Zhongguancun
-High-Tech Enterprise)</span>
-        <span class="pill">Vewell Ranked in LED Solution (Omdia)</span>
-        <span class="pill">EMC (Certificate)</span>
-        <span class="pill">ATEX (EU)</span>
-        <span class="pill">IECEx (International)</span>
-        <span class="pill">TKDN </span>
-      </div>
+      <div class="pillrow" id="chips"></div>
 
       <div class="btns">
-        <a class="btn" href="https://wa.me/6281216686226?text=Halo%2C%20saya%20baru%20scan%20QR%20card%20Anda.">WhatsApp</a>
-        <a class="btn" href="mailto:support@ctu-indonesia.com?subject=Inquiry%20from%20QR%20card">Email</a>
-        <a class="btn" href="https://www.linkedin.com/in/ptciptateknikutama/" target="_blank" rel="noopener">LinkedIn</a>
-        <!-- kalau vcf kamu taruh di assets, ganti jadi href="assets/contact.vcf" -->
-        <a class="btn" href="https://ctu-indonesia.com/" download>Website</a>
+        <a class="btn" id="btn-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" id="btn-email" href="#">Email</a>
+        <a class="btn" id="btn-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" id="btn-web" href="#" target="_blank" rel="noopener">Website</a>
+        <a class="btn" id="btn-vcf" href="#" download>Save Contact (.vcf)</a>
       </div>
     </article>
 
     <!-- WORK -->
-    <section id="About CTU" class="section">
+    <section id="work" class="section">
       <div class="card" style="padding:18px">
-        <h2>About CTU</h2>
-        <p class="muted">Showcasing selected projects and deployments.</p>
+        <h2>Work</h2>
+        <p class="muted" id="work-sub">Showcasing selected projects and deployments.</p>
         <div id="work-grid" class="workgrid"></div>
       </div>
     </section>
@@ -143,28 +137,138 @@ High-Tech Enterprise)</span>
   </div>
 
   <script>
-    const projects = [
-      { title:'Ranked in LED Solution Omdia', tag:'Top Brand',        img:'assets/Work-1.jpg', url:'#' },
-      { title:'official distributor and Service Centre i.safe in Indonesia',        tag:'Official Distributor',       img:'assets/Work-2.png', url:'#' },
-      { title:'Vewell monitors passed EMC testing and meet EU standards. and Top Brand Certificate',       tag:'Legal & Compliance Documentation',           img:'assets/Work-3.png', url:'#' },
-      { title:'After-Sales Service Program',     tag:'Service',          img:'assets/Work-4.png', url:'#' },
-      { title:'ATEX/IECEx Certification Advisory', tag:'Certification',  img:'assets/Work-5.png', url:'#' },
-      { title:'TKDN Assembly Line Setup',        tag:'Manufacturing',    img:'assets/Work-6.png', url:'#' }
-    ];
+    // ==== SET SEKALI DI SINI ====
+    // Isi URL LinkedIn perusahaan & website resmi (ganti placeholder di bawah).
+    const COMPANY = {
+      linkedin: 'https://www.linkedin.com/company/ISI-LINKEDIN-CTU', // TODO: ganti ke URL LinkedIn CTU
+      website:  'https://ctu-indonesia.com' // TODO: ganti jika domain resminya berbeda
+    };
 
+    // --- DATA ORANG (edit di sini untuk tambah orang baru) ---
+    // Simpan gambar di: assets/people/<slug>/{avatar.jpg, hero.jpg, work-1.jpg, ...}
+    const profiles = {
+      arifin: {
+        name: 'Arifin Wibowo',
+        title: 'Assistant Director — PT Cipta Teknik Utama',
+        desc: 'PT Cipta Teknik Utama adalah distributor eksklusif i.safe MOBILE di Indonesia dan satu-satunya authorized service center. Kami memberikan solusi yang compliant dan andal — dari perakitan dan sertifikasi hingga layanan purna jual — disesuaikan dengan kebutuhan operasional.',
+        chips: ['ATEX (EU)','IECEx (International)','TKDN Support'],
+        hero: 'assets/people/arifin/hero.jpg',
+        avatar: 'assets/people/arifin/avatar.jpg',
+        wa: 'https://wa.me/6281234567890?text=Halo%2C%20saya%20baru%20scan%20QR%20card%20Anda.',
+        email: 'mailto:arifin@ctu.example?subject=Inquiry%20from%20QR%20card',
+        linkedin: '',   // kosongkan agar pakai COMPANY.linkedin
+        website: '',    // kosongkan agar pakai COMPANY.website
+        vcf: 'assets/people/arifin/contact.vcf',
+        workSubtitle: 'Selected deployments by Arifin.',
+        projects: [
+          { title:'Hazardous Area Phone Deployment', tag:'Oil & Gas', img:'assets/people/arifin/work-1.jpg', url:'#' },
+          { title:'EMC & RF Testing Support',        tag:'Compliance', img:'assets/people/arifin/work-2.jpg', url:'#' },
+          { title:'Conquest Rollout (Mining)',       tag:'Mining',     img:'assets/people/arifin/work-3.jpg', url:'#' }
+        ]
+      },
+      rani: {
+        name: 'Rani Putri',
+        title: 'Account Manager — PT Cipta Teknik Utama',
+        desc: 'Fokus pada integrasi solusi Ex-proof di sektor mining dan O&G, memastikan SLA terpenuhi.',
+        chips: ['Accounts','Deployment','After-Sales'],
+        hero: 'assets/people/rani/hero.jpg',
+        avatar: 'assets/people/rani/avatar.jpg',
+        wa: 'https://wa.me/6281234000000?text=Halo%2C%20saya%20baru%20scan%20QR%20card%20Anda.',
+        email: 'mailto:rani@ctu.example?subject=Inquiry%20from%20QR%20card',
+        linkedin: '',  // pakai COMPANY.linkedin
+        website: '',   // pakai COMPANY.website
+        vcf: 'assets/people/rani/contact.vcf',
+        workSubtitle: 'Projects handled by Rani.',
+        projects: [
+          { title:'Site Rollout Phase 2', tag:'Mining',  img:'assets/people/rani/work-1.jpg', url:'#' },
+          { title:'Service Program Revamp', tag:'Service', img:'assets/people/rani/work-2.jpg', url:'#' }
+        ]
+      },
+      budi: {
+        name: 'Budi Santoso',
+        title: 'Technical Lead — PT Cipta Teknik Utama',
+        desc: 'Memimpin komisi dan sertifikasi perangkat Ex, memastikan compliance ATEX/IECEx.',
+        chips: ['ATEX','IECEx','RF/EMC'],
+        hero: 'assets/people/budi/hero.jpg',
+        avatar: 'assets/people/budi/avatar.jpg',
+        wa: 'https://wa.me/6281234999999?text=Halo%2C%20saya%20baru%20scan%20QR%20card%20Anda.',
+        email: 'mailto:budi@ctu.example?subject=Inquiry%20from%20QR%20card',
+        linkedin: '',  // pakai COMPANY.linkedin
+        website: '',   // pakai COMPANY.website
+        vcf: 'assets/people/budi/contact.vcf',
+        workSubtitle: 'Technical highlights.',
+        projects: [
+          { title:'Certification Advisory', tag:'Certification', img:'assets/people/budi/work-1.jpg', url:'#' }
+        ]
+      },
+      // === AMELIA BARU (sesuai data yang kamu kirim) ===
+      amelia: {
+        name: 'Amelia Novianti',
+        title: 'Sales Manager — PT Cipta Teknik Utama',
+        desc: 'Fokus ke akuisisi dan pengembangan account B2B di sektor Mining & Oil/Gas. Menjaga pipeline sehat, koordinasi deployment, dan memastikan SLA layanan purna jual.',
+        chips: ['Sales','Accounts','B2B'],
+        hero: 'assets/people/amelia/hero.jpg',
+        avatar: 'assets/people/amelia/avatar.jpg',
+        // WA & Email dari kamu:
+        wa: 'https://wa.me/6281292119797?text=Halo%2C%20saya%20baru%20scan%20QR%20card%20Anda.',
+        email: 'mailto:amelia@ctu-indonesia.com?subject=Inquiry%20from%20QR%20card',
+        // LinkedIn & Website: samakan ke perusahaan -> kosongkan, akan fallback ke COMPANY di bawah
+        linkedin: '',
+        website: '',
+        vcf: 'assets/people/amelia/contact.vcf',
+        workSubtitle: 'Key accounts & rollouts by Amelia.',
+        projects: [
+          { title:'Client Onboarding (Enterprise)', tag:'Sales',   img:'assets/people/amelia/work-1.jpg', url:'#' },
+          { title:'Mining Sector Rollout',          tag:'Mining',  img:'assets/people/amelia/work-2.jpg', url:'#' },
+          { title:'After-Sales Upsell Program',     tag:'Service', img:'assets/people/amelia/work-3.jpg', url:'#' }
+        ]
+      }
+    };
+
+    // --- LOGIKA RENDER ---
+    const params = new URLSearchParams(location.search);
+    const slug = (params.get('p') || 'arifin').toLowerCase();
+    const data = profiles[slug] || profiles['arifin'];
+
+    // Gambar (fallback ke umum jika file per orang belum ada)
+    document.getElementById('hero-img').src   = data.hero   || 'assets/hero.jpg';
+    document.getElementById('avatar-img').src = data.avatar || 'assets/avatar.jpg';
+
+    // Teks
+    document.getElementById('name').textContent  = data.name;
+    document.getElementById('title').textContent = data.title;
+    document.getElementById('desc').textContent  = data.desc;
+
+    // Chips
+    const chips = document.getElementById('chips');
+    chips.innerHTML = (data.chips || []).map(t => `<span class="pill">${t}</span>`).join('');
+
+    // Buttons (pakai fallback perusahaan)
+    const setHref = (id, href) => {
+      const el = document.getElementById(id);
+      if (href) { el.href = href; el.removeAttribute('hidden'); }
+      else { el.setAttribute('hidden',''); }
+    };
+    setHref('btn-wa', data.wa);
+    setHref('btn-email', data.email);
+    setHref('btn-linkedin', data.linkedin || COMPANY.linkedin);
+    setHref('btn-web', data.website || COMPANY.website);
+    setHref('btn-vcf', data.vcf);
+
+    // Work subtitle + grid
+    if (data.workSubtitle) document.getElementById('work-sub').textContent = data.workSubtitle;
     const grid = document.getElementById('work-grid');
-    grid.innerHTML = projects.map(p => `
-      <a class="workcard" href="${p.url}">
-        <div class="thumb">
-          <img src="${p.img}" alt="${p.title}">
-        </div>
+    grid.innerHTML = (data.projects || []).map(p => `
+      <a class="workcard" href="${p.url || '#'}">
+        <div class="thumb"><img src="${p.img}" alt="${p.title}"></div>
         <div class="workcap">
           <h3 class="worktitle">${p.title}</h3>
-          <p class="workmeta">${p.tag}</p>
+          <p class="workmeta">${p.tag || ''}</p>
         </div>
       </a>
     `).join('');
 
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
